@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Card from '../utils/Card'
 const Teams = () => {
 return (
 	<div
@@ -11,6 +11,7 @@ return (
 	}}
 	>
 	<h1>About me</h1>
+	<Card />
 	</div>
 );
 };
