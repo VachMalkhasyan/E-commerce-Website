@@ -1,5 +1,5 @@
 import React from 'react';
-import styles_for_signin from "./signin.css/signin.css"
+import"./signin.css/signin.css"
 const Signin = () => {
 return (
 	<div class="container">
