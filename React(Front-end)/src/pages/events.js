@@ -1,17 +1,8 @@
 import React from 'react';
-
+import Area from '../utils/areasforproducts'
 const Events = () => {
 return (
-	<div
-	style={{
-		display: 'flex',
-		justifyContent: 'Right',
-		alignItems: 'Right',
-		height: '100vh'
-	}}
-	>
-	<h1>Sales or abuot that</h1>
-	</div>
+	<Area />
 );
 };
 
