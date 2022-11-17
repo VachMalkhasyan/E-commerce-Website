@@ -1,5 +1,7 @@
 import React from 'react';
-import"./signin.css/signin.css"
+import"./cssformainpages/signin.css"
+import Footer from '../components/Navbar/Footer';
+
 const Signin = () => {
 return (
 	<div class="container">
@@ -35,7 +37,9 @@ return (
 			<span class="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
+	
 </div>
+
 );
 };
 

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer class="footer">
     <div class="footer__addr">
-      <h1 class="footer__logo">Something</h1>
+      <h1 class="footer__logo">Shop</h1>
           
       <h2>Contact</h2>
       
@@ -85,11 +85,7 @@ export default function Footer() {
     </ul>
     
     <div class="legal">
-      <p>&copy; 2019 Something. All rights reserved.</p>
-      
-      <div class="legal__links">
-        <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
-      </div>
+      <p>&copy; 2022. All rights reserved.</p>
     </div>
   </footer>
   );

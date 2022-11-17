@@ -15,8 +15,8 @@ return (
 		<Bars />
 
 			<NavMenu>
-				<NavLink to='/about' activestyle="true">
-					About
+				<NavLink to='All_Products' activestyle="true">
+				 All_Products
 				</NavLink>
 				<NavLink to='/Hot products' activestyle="true">
 					Hot Products
