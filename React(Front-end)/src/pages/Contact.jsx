@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState }  from "react";
 import "./Contact.css"
 import '../App.css'
+import { useRef } from "react";
+import emailjs from '@emailjs/browser';
+
+const Result = () =>{
+    return(
+        <p> Your message has been successfuly send</p>
+    )
+}
+
 const Contact = () => {
+     const [result,showResult]= useState(false);
+    
+    
+    const form = useRef();
+    const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pkt6omk', 'template_b70pe2i', form.current, '3b_KoBAyTtb7jqJZ9')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      })
+    e.target.reset();
+    showResult(true)
+    } ;
+    setTimeout(()=>{
+        showResult(!true)
+    },5000)
   return (
     <>
  <body>
@@ -9,7 +37,7 @@ const Contact = () => {
       <div class="contactOverlay">
         <div class="container">
           <div class="form">
-            <form action="" onSubmit="">
+            <form ref={form} onSubmit={sendEmail}>
               <div class="formWord">
                 <h2>Say Hello!</h2>
                 <span>Full Name</span>
@@ -32,7 +60,11 @@ const Contact = () => {
                 <br />
                 <button>SUBMIT</button>
 
-                <div class="row">All Done</div>
+                <div class="row">
+                    {
+                    result ? <Result /> : null
+                    }
+                </div>
               </div>
             </form>
           </div>
