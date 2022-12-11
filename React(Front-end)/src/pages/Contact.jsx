@@ -1,7 +1,6 @@
-import React, { useState }  from "react";
+import React, { useState, useRef  }  from "react";
 import "./Contact.css"
 import '../App.css'
-import { useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 const Result = () =>{
@@ -18,7 +17,7 @@ const Contact = () => {
     const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_pkt6omk', 'template_b70pe2i', form.current, '3b_KoBAyTtb7jqJZ9')
+    emailjs.sendForm(process.env.REACT_APP_FIRST, process.env.REACT_APP_SECOND, form.current, process.env.REACT_APP_THIRD)
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -33,34 +32,34 @@ const Contact = () => {
   return (
     <>
  <body>
-    <div class="contactme" id="contact">
-      <div class="contactOverlay">
-        <div class="container">
-          <div class="form">
+    <div className="contactme" id="contact">
+      <div className="contactOverlay">
+        <div className="container">
+          <div className="form">
             <form ref={form} onSubmit={sendEmail}>
-              <div class="formWord">
-                <h2>Say Hello!</h2>
+              <div className="formWord">
+                <h2>Ask your question to VaLa</h2>
                 <span>Full Name</span>
                 <br />
-                <input class="input100" type="text" name="fullName" required />
+                <input className="input100" type="text" name="fullName" required />
                 <br />
                 <span>Phone Number</span>
                 <br />
-                <input class="input100" type="text" name="phone" required />
+                <input className="input100" type="text" name="phone" required />
                 <br />
                 <span>Enter Email</span>
                 <br />
-                <input class="input100" type="text" name="email" required />
+                <input className="input100" type="text" name="email" required />
                 <br />
               </div>
-              <div class="formWord">
+              <div className="formWord">
                 <span>Message</span>
                 <br />
                 <textarea name="message" required></textarea>
                 <br />
                 <button>SUBMIT</button>
 
-                <div class="row">
+                <div className="row">
                     {
                     result ? <Result /> : null
                     }
