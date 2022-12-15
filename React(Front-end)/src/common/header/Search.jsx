@@ -1,6 +1,8 @@
 import React from "react"
 import Contact from "../../pages/Contact"
 import { Link } from "react-router-dom"
+import CardSearch from './SearchEngine.jsx/CardSearch'
+
 
 const Search = ({ CartItem }) => {
   // fixed Header

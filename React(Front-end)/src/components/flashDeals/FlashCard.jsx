@@ -26,7 +26,7 @@ const SamplePrevArrow = (props) => {
 const FlashCard = ({ productItems, addToCart }) => {
   const [count, setCount] = useState(0)
   const increment = () => {
-    setCount(count + 1)
+    setCount(count + 1 )
   }
   const settings = {
     dots: false,
@@ -49,7 +49,7 @@ const FlashCard = ({ productItems, addToCart }) => {
                   <span className='discount'>{productItems.discount}% Off</span>
                   <img src={productItems.cover} alt='' />
                   <div className='product-like'>
-                    <label>{count}</label> <br />
+                    <label src={productItems.isLiked}>{count}</label> <br />
                     <i className='fa-regular fa-heart' onClick={increment}></i>
                   </div>
                 </div>
