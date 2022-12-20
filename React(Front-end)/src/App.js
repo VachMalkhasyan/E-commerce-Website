@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header CartItem={CartItem} />
+        <Header CartItem={CartItem}  />
         <Switch>
           <Route path='/' exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />

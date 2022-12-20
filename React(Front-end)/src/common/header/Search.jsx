@@ -1,10 +1,13 @@
-import React from "react"
-import Contact from "../../pages/Contact"
+import React,{useState }from "react"
 import { Link } from "react-router-dom"
-import CardSearch from './SearchEngine.jsx/CardSearch'
+import Datassearch from "../../components/Datassearch"
+
+const productItems = Datassearch
 
 
 const Search = ({ CartItem }) => {
+
+  const [query, setQuery] = useState("")
   // fixed Header
   window.addEventListener("scroll", function () {
     const search = document.querySelector(".search")
@@ -21,7 +24,48 @@ const Search = ({ CartItem }) => {
 
           <div className='search-box f_flex'>
             <i className='fa fa-search'></i>
-            <input type='text' placeholder='Search and hit enter...' />
+            <input
+            type='text'
+            placeholder='Search and hit enter...'
+            onChange={event => setQuery(event.target.value) }
+            />
+            
+            {
+  productItems.filter(productItems => {
+    if (query === '') {
+      return productItems;
+    } else if (productItems.name.toLowerCase().includes(query.toLowerCase())) {
+      return productItems;
+    }
+  }).map((productItems) => {
+    
+      <div className='box'>
+        <div className='product mtop'>
+          <div className='img'>
+            <span className='discount'>{productItems.discount}% Off</span>
+            <img src={productItems.cover} alt='' />
+          </div>
+          <div className='product-details'>
+            <h3>{productItems.name}</h3>
+            <div className='rate'>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+            </div>
+            <div className='price'>
+              <h4>${productItems.price}.00 </h4>
+              {}
+            </div>
+          </div>
+        </div>
+      </div>
+   
+  })}
+
+
+
             <span>All Category</span>
           </div>
 

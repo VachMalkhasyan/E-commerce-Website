@@ -75,9 +75,11 @@ if(passwordInputFieldName==='password'){
     <div className="">
      <div className="">
         <PasswordInputField 
+        name='password'
+
         handlePasswordChange={handlePasswordChange} 
         handleValidation={handleValidation} 
-        Passwordvalue={passwordInput.password} 
+        value={passwordInput.password} 
         passwordError={passwordError}/>
         <ConfirmPasswordInputField 
         handlePasswordChange={handlePasswordChange} 
