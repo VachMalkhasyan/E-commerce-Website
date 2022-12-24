@@ -1,5 +1,7 @@
-import React,{ useState }  from 'react'
-import PasswordAndConfirmPasswordValidation from '../useraccaunt/password-and-confirm-password-validation/PasswordAndConfirmPasswordValidation'
+import React,{ useState }  from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Register = ({ setAuth }) => {
@@ -40,7 +42,7 @@ const Register = ({ setAuth }) => {
               toast.error(parseRes);
             }
           } catch (err) {
-            console.log(err.message);
+            console.log(err);
           }
         };
   return (
@@ -70,13 +72,13 @@ const Register = ({ setAuth }) => {
           onChange={e => onChange(e)}
         />
       </div>
-      <div className="form-group mt-3">
+      {/* <div className="form-group mt-3">
       <label>Password</label>
     
       <PasswordAndConfirmPasswordValidation/>
-      </div>
-      
-      {/* <div className="form-group mt-3">
+      </div> */
+      }
+      <div className="form-group mt-3">
         <label>Password</label>
         <input
           type="password"
@@ -87,7 +89,7 @@ const Register = ({ setAuth }) => {
           placeholder="Password"
         />
         
-      </div> */}
+      </div>
       <div className="d-grid gap-2 mt-3">
         <button type="submit" className="btn btn-primary">
           Submit

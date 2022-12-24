@@ -6,8 +6,21 @@ const productItems = Datassearch
 
 
 const Search = ({ CartItem }) => {
-
+  
   const [query, setQuery] = useState("")
+  const [filteredItems,setFilteredItems] = useState(productItems)
+  
+
+  const onSearch=(event) =>{
+    console.log(event.target.value)
+    if(event.target.value!==''){
+        console.log(productItems)
+      setFilteredItems( productItems.filter(item => item.name.toLowerCase().includes(event.target.value.toLowerCase()))) 
+    }
+    return productItems
+  }
+
+  console.log(filteredItems,123)
   // fixed Header
   window.addEventListener("scroll", function () {
     const search = document.querySelector(".search")
@@ -27,26 +40,27 @@ const Search = ({ CartItem }) => {
             <input
             type='text'
             placeholder='Search and hit enter...'
-            onChange={event => setQuery(event.target.value) }
+            onChange={event => onSearch(event)}
             />
             
             {
-  productItems.filter(productItems => {
-    if (query === '') {
-      return productItems;
-    } else if (productItems.name.toLowerCase().includes(query.toLowerCase())) {
-      return productItems;
-    }
-  }).map((productItems) => {
+  // productItems.filter(productItems => {
+  //   if (query === '') {
+  //     return productItems;
+  //   } else if (productItems.name.toLowerCase().includes(query.toLowerCase())) {
+  //     return productItems;
+  //   }
+  //)
+  filteredItems.map((filteredItem) => {
     
-      <div className='box'>
+      <div className='box' key={filteredItem.id}>
         <div className='product mtop'>
           <div className='img'>
-            <span className='discount'>{productItems.discount}% Off</span>
-            <img src={productItems.cover} alt='' />
+            <span className='discount'>{filteredItem.discount}% Off</span>
+            <img src={filteredItem.cover} alt='' />
           </div>
           <div className='product-details'>
-            <h3>{productItems.name}</h3>
+            <h3>{filteredItem.name}</h3>
             <div className='rate'>
               <i className='fa fa-star'></i>
               <i className='fa fa-star'></i>
@@ -55,7 +69,7 @@ const Search = ({ CartItem }) => {
               <i className='fa fa-star'></i>
             </div>
             <div className='price'>
-              <h4>${productItems.price}.00 </h4>
+              <h4>${filteredItem.price}.00 </h4>
               {}
             </div>
           </div>

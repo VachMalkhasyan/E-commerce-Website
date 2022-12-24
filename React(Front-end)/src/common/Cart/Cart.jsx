@@ -45,7 +45,9 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
                   </div>
 
                   <div className='cart-item-price'></div>
+                  <button> TO PAY</button>
                 </div>
+                
               )
             })}
           </div>

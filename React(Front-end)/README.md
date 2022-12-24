@@ -5,7 +5,7 @@ This is a sample application that demonstrates an E-commerce website using the P
 
 ## Features
 
-- Search Engine
+- Search field
 - A page with Sign-in and Sign-out components.
 - Fullscreen mode
 - Has a cart feature which opens up and displays the items selected in a summary
@@ -16,14 +16,15 @@ Install my-project with npm
 
 ```bash
   git clone https://github.com/VachMalkhasyan/Final-Project-Font-end-.git
+  cd Final-Project-Font-end-
   npm install
   npm run
 ```
 ## Copy it and place in in your .env file
 ```bash
-REACT_APP_FIRST = 'service_pkt6omk'
-REACT_APP_SECOND = 'template_b70pe2i'
-REACT_APP_THIRD = '3b_KoBAyTtb7jqJZ9'
+REACT_APP_FIRST = 'service_example'
+REACT_APP_SECOND = 'template_example'
+REACT_APP_THIRD = 'passwordsecret'
 ```
 ## Author
 

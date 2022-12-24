@@ -5,7 +5,7 @@ const Login = ({ setAuth }) => {
       email: "",
       password: ""
     });
-  
+    const[errorMessage,setErrorMessage]=useState('')
     const { email, password } = inputs;
   
     const onChange = e =>
@@ -24,8 +24,12 @@ const Login = ({ setAuth }) => {
             },
             body: JSON.stringify(body)
           }
-        );
-  
+        )
+
+
+        .then(response=>response.json())
+        .then(res=>{setErrorMessage(res.message),localStorage.setItem("token",res.token)})
+        
         const parseRes = await response.json();
   
         if (parseRes.jwtToken) {
@@ -37,7 +41,7 @@ const Login = ({ setAuth }) => {
           toast.error(parseRes);
         }
       } catch (err) {
-        console.error(err.message);
+        console.log(err);
       }
     };
     
@@ -70,6 +74,7 @@ const Login = ({ setAuth }) => {
             placeholder="Enter password"
           />
         </div>
+        <p>{errorMessage}</p>
         <div className="d-grid gap-2 mt-3">
           <button type="submit" className="btn btn-primary">
             Submit
