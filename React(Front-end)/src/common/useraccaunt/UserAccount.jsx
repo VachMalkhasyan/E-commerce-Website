@@ -13,8 +13,8 @@ export default function UserAccount (props) {
   if (authMode === "signin") {
     return (
       <>
-      <div className="text-center">
-      <button onClick={changeAuthMode}> signUP</button>
+      <div className="text-right">
+      <button onClick={changeAuthMode} className='btn-primary'> signUP</button>
       </div>
       <Login/>
       </>
@@ -25,8 +25,8 @@ export default function UserAccount (props) {
   if (authMode === "signup") {
      return (
     <>
-    <div className="text-center">
-    <button onClick={changeAuthMode}>signIN </button>
+    <div className="text-right">
+    <button onClick={changeAuthMode} className='btn-primary'>signIN </button>
     </div>
     <Register/>
     </>

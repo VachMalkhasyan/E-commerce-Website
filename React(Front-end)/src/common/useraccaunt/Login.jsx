@@ -1,4 +1,5 @@
-import React ,{ useState } from 'react'
+import React ,{ useState } from 'react';
+import Popup from 'react-popup'
 
 const Login = ({ setAuth }) => {
     const [inputs, setInputs] = useState({
@@ -31,6 +32,10 @@ const Login = ({ setAuth }) => {
         .then(res=>{setErrorMessage(res.message),localStorage.setItem("token",res.token)})
         
         const parseRes = await response.json();
+
+        if(response.json()!='token'){
+
+        }
   
         if (parseRes.jwtToken) {
           localStorage.setItem("token", parseRes.jwtToken);
@@ -74,7 +79,7 @@ const Login = ({ setAuth }) => {
             placeholder="Enter password"
           />
         </div>
-        <p>{errorMessage}</p>
+        <p>{setErrorMessage}</p>
         <div className="d-grid gap-2 mt-3">
           <button type="submit" className="btn btn-primary">
             Submit
